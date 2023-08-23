@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvxsa3kpdgpoh"]
+
+[ext_resource type="Script" path="res://Scenes/camera_controller/CameraController.gd" id="1_v6as3"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_hlnlu"]
+length = 7.71598
+
+[node name="CameraController" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.936268, -0.351286, 0, 0.351286, 0.936268, 0, 0, 0)
+script = ExtResource("1_v6as3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.392802, 0.919623, 0, -0.919623, 0.392802, 0, 7.58191, 2.79917)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.905747, 0.42382, 0, -0.42382, 0.905747, 0, 3.09944e-06, -1.90735e-06)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, -0.999992, 0.00406668, 0, -0.00406668, -0.999992, 0, 0, 0)
+shape = SubResource("SeparationRayShape3D_hlnlu")
